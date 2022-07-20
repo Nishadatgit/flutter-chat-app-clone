@@ -1,6 +1,7 @@
 import 'package:chat_app_clone/models/message_model.dart';
 import 'package:chat_app_clone/screens/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FavoriteContacts extends StatelessWidget {
   const FavoriteContacts({
@@ -41,9 +42,7 @@ class FavoriteContacts extends StatelessWidget {
             itemBuilder: (ctx, index) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          ChatScreen(user: favorites[index]),),);
+                  Get.to(ChatScreen(user: favorites[index]),transition: Transition.cupertino);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),

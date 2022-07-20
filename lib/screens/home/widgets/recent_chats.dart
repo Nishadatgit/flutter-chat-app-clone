@@ -1,6 +1,7 @@
 import 'package:chat_app_clone/models/message_model.dart';
 import 'package:chat_app_clone/screens/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RecentChats extends StatelessWidget {
   const RecentChats({
@@ -28,11 +29,7 @@ class RecentChats extends StatelessWidget {
               final chat = chats[index];
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ChatScreen(user: chat.sender),
-                    ),
-                  );
+                  Get.to(ChatScreen(user: chat.sender),transition: Transition.cupertino);
                 },
                 child: Container(
                   decoration: BoxDecoration(
